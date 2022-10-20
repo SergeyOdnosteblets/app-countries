@@ -1,0 +1,24 @@
+.main {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.content {
+  padding: 50px;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.darkTheme {
+  color: white;
+  background: #212e37;
+}
+
+.country {
+  display: flex;
+  align-items: center;
+
+  .country__flag {
+    padding: 30px;
+  }
+}

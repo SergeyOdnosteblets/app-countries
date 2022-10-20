@@ -1,0 +1,15 @@
+.select {
+  padding: 15px;
+  width: 200px;
+  border-radius: 5px;
+  border: none;
+
+  @media (max-width: 420px) {
+    margin-top: 50px;
+  }
+}
+
+.darkTheme {
+  background: #2b3743;
+  color: white;
+}
