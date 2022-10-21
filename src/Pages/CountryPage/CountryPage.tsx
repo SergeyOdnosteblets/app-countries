@@ -7,8 +7,6 @@ import style from './CountryPage.module.scss';
 import { Neighbours } from '../../Components/Neighbours/Neighbours';
 import { ObjectType, ObjectCurrency } from '../../Types/ObjectType';
 
-
-
 export const CountryPage: React.FC<CountryPageType> = ({ countries, themeColor }) => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -20,59 +18,76 @@ export const CountryPage: React.FC<CountryPageType> = ({ countries, themeColor }
   return (
     <div className={themeColor ? `${style.main} ${style.darkTheme}` : `${style.main}`}>
       <div className={style.content}>
-        <button onClick={goBack}>
-          <IoArrowBackOutline /> Back
+        <button
+          onClick={goBack}
+          className={
+            themeColor ? `${style.buttonBack} ${style.darkButton}` : `${style.buttonBack}`
+          }>
+          <IoArrowBackOutline /> <span>Back</span>
         </button>
         {countryInfo && (
           <div className={style.country}>
             <img src={countryInfo.flags.png} alt="" className={style.country__flag} />
-            <div>
-              <div>{countryInfo.name.common}</div>
-              <div>
-                <span>Native Name: </span>
-                {Object.entries(countryInfo.name.nativeName as Array<ObjectType>)[0][1].common}
-              </div>
-              <div>
-                <span>Population: </span>
-                {countryInfo.population}
-              </div>
-              <div>
-                <span>Region: </span>
-                {countryInfo.region}
-              </div>
-              <div>
-                <span>Sub Region: </span>
-                {countryInfo.subregion}
-              </div>
-              <div>
-                <span>Capital: </span>
-                {countryInfo.capital}
-              </div>
-              <div>
-                <span>Top Level Domain: </span>
-                {countryInfo.tld[0]}
-              </div>
-              <div>
-                <span>Currencies: </span>
-                {Object.values(countryInfo.currencies as Array<ObjectCurrency>)[0].name}
-              </div>
-              <div>
-                <span>Languages: </span>
-                {Object.values(countryInfo.languages).join(' ')}
+            <div className={style.country__info}>
+              <div className={style.country__name}>{countryInfo.name.common}</div>
+              <div className={style.info__text}>
+                <div>
+                  <div>
+                    <span>Native Name: </span>
+                    {Object.entries(countryInfo.name.nativeName as Array<ObjectType>)[0][1].common}
+                  </div>
+                  <div>
+                    <span>Population: </span>
+                    {countryInfo.population}
+                  </div>
+                  <div>
+                    <span>Region: </span>
+                    {countryInfo.region}
+                  </div>
+                  <div>
+                    <span>Sub Region: </span>
+                    {countryInfo.subregion}
+                  </div>
+                  <div>
+                    <span>Capital: </span>
+                    {countryInfo.capital}
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <span>Top Level Domain: </span>
+                    {countryInfo.tld[0]}
+                  </div>
+                  <div>
+                    <span>Currencies: </span>
+                    {Object.values(countryInfo.currencies as Array<ObjectCurrency>)[0].name}
+                  </div>
+                  <div>
+                    <span>Languages: </span>
+                    {Object.values(countryInfo.languages).join(' ')}
+                  </div>
+                </div>
               </div>
 
-              {countryInfo.borders && (
-                <>
-                  <span>Border Countries: </span>
-                  {countryInfo.borders.map((border: any, index: number) => {
-                    return (
-                      <div key={index}>
-                        <Neighbours neighbours={border} />
-                      </div>
-                    );
-                  })}
-                </>
-              )}
+              <div className={style.neighbours}>
+                {countryInfo.borders && (
+                  <>
+                    <span>Border Countries: </span>
+                    <div className={style.border}>
+                      {countryInfo.borders.map((border: string) => {
+                        return (
+                          <Neighbours
+                            neighbours={border}
+                            countries={countries}
+                            themeColor={themeColor}
+                            key={border}
+                          />
+                        );
+                      })}
+                    </div>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         )}

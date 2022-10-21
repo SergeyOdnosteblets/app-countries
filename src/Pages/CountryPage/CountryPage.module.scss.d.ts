@@ -3,3 +3,10 @@ export const darkTheme: string
 export const main: string
 export const country__flag: string
 export const content: string
+export const buttonBack: string
+export const darkButton: string
+export const country__info: string
+export const country__name: string
+export const neighbours: string
+export const info__text: string
+export const border: string

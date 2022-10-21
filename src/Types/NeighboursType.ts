@@ -1,3 +1,5 @@
 export interface NeighboursType {
-    neighbours: string[]
+    neighbours: string
+    themeColor: boolean
+    countries: any
 }
