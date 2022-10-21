@@ -1,0 +1,36 @@
+.header {
+  width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 2px -2px rgb(163, 156, 156);
+}
+
+.dark {
+  background: #2b3743;
+  color: white;
+}
+
+.container {
+  height: 100px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .title {
+    font-size: 25px;
+    font-weight: 800;
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  font-weight: 800;
+  cursor: pointer;
+
+  .title__icon {
+    margin-left: 5px;
+  }
+}

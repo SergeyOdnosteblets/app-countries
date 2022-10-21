@@ -1,0 +1,19 @@
+.button {
+  margin: 0 5px 5px 5px;
+  font-size: 18px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 10px 1px rgb(164, 157, 157);
+
+  @media (max-width: 420px) {
+    font-size: 16px;
+  }
+}
+
+.darkButton {
+  color: white;
+  background: #2b3743;
+  box-shadow: 0 0 10px 1px rgb(21, 19, 19);
+}
